@@ -171,6 +171,7 @@ function createActionBtn() {
         }
 
         renderList(storageNotes);
+        renderCategory(storageNotes);
     })
 
     imgBtnWrapper.appendChild(iconEdit);
@@ -330,6 +331,7 @@ function renderArchive(data) {
 
                     renderList(storageNotes);
                     renderCategory(storageNotes);
+                    renderArchive(storageNotes)
                 })
 
                 li.appendChild(createImageCategory(item));
