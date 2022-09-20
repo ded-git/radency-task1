@@ -1,4 +1,4 @@
-import { storageNotes, buttonCreate, imgCatgSrc, month } from "./constants";
+import { storageNotes, buttonCreate, imgCatgSrc, month } from "./constants.js";
 
 const main = document.querySelector('#main');//list
 const createBtn = document.querySelector('#createBtn');//createBTN
@@ -16,22 +16,11 @@ let inputDate = document.querySelector('#inputDate');
 let category = document.querySelector('#category');
 let archive = document.querySelector('#archive')
 
-////////////////////////////////////////////////////////////////////////EVENT LISTENER
 createBtn.addEventListener('click', toggleAddingForm)
-
 addBtn.addEventListener('click', addNewTask)
-////////////////////////////////////////////////////////////////////////EVENT LISTENER
-
-
-
-// try {
 
 renderList(storageNotes);
 renderCategory(storageNotes);
-renderArchive(storageNotes);
-// } catch (e) {
-//     console.log(e);
-// }
 
 function toggleAddingForm() {
     buttonCreate.active = !buttonCreate.active;
@@ -268,7 +257,8 @@ function renderList(data) {
         }
     }
 
-    renderCategory(storageNotes);
+    storageNotes.filter(el => el.isArchived === true).length && renderArchive(storageNotes)
+
 }
 
 function renderCategory(data) {
@@ -321,39 +311,38 @@ function renderCategory(data) {
 function renderArchive(data) {
     archive.innerHTML = '';
 
-    for (let item of data) {
-        if (item.isArchived) {
-            let li = document.createElement('li');
-            li.classList.add('item');
-            li.setAttribute('data-id', item.id);
-            let liId = li.getAttribute('data-id');
-            let unarchive = document.createElement('div');
-            unarchive.classList.add('icon-btn-wrapper');
-            let imgUnarchive = document.createElement('img');
-            imgUnarchive.classList.add('icon');
-            imgUnarchive.src = '/icons/unarchive.png';
-            unarchive.appendChild(imgUnarchive);
+        for (let item of data) {
+            if (item.isArchived) {
+                let li = document.createElement('li');
+                li.classList.add('item');
+                li.setAttribute('data-id', item.id);
+                let liId = li.getAttribute('data-id');
+                let unarchive = document.createElement('div');
+                unarchive.classList.add('icon-btn-wrapper');
+                let imgUnarchive = document.createElement('img');
+                imgUnarchive.classList.add('icon');
+                imgUnarchive.src = '/icons/unarchive.png';
+                unarchive.appendChild(imgUnarchive);
 
-            imgUnarchive.addEventListener('click', (event) => {
-                let itemsId = event.target.closest('li').getAttribute('data-id');
-                storageNotes[itemsId - 1]['isArchived'] = false;
+                imgUnarchive.addEventListener('click', (event) => {
+                    let itemsId = event.target.closest('li').getAttribute('data-id');
+                    storageNotes[itemsId - 1]['isArchived'] = false;
 
-                renderList(storageNotes);
-                renderCategory(storageNotes);
-                renderArchive(storageNotes);
-            })
+                    renderList(storageNotes);
+                    renderCategory(storageNotes);
+                })
 
-            li.appendChild(createImageCategory(item));
-            li.appendChild(createItemName(item));
-            li.appendChild(createItemCreationDate(item));
-            li.appendChild(createItemCategory(item));
-            li.appendChild(createItemContent(item));
-            li.appendChild(createItemDates(item));
-            li.appendChild(unarchive);
+                li.appendChild(createImageCategory(item));
+                li.appendChild(createItemName(item));
+                li.appendChild(createItemCreationDate(item));
+                li.appendChild(createItemCategory(item));
+                li.appendChild(createItemContent(item));
+                li.appendChild(createItemDates(item));
+                li.appendChild(unarchive);
 
-            archive.appendChild(li)
+                archive.appendChild(li)
+            }
         }
-    }
 
     renderCategory(storageNotes);
 }
