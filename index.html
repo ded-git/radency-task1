@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Notes App</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="wrapper">
+        <div class='header'>
+            <p>Name</p>
+            <p>Created</p>
+            <p>Category</p>
+            <p>Content</p>
+            <p>Dates</p>
+        </div>
+        <ul class="main" id="main">
+        </ul>
+        <form id="formInput" class='form form--hidden' action="#" method="post">
+            <input type="text" placeholder="name" id="inputName">
+            <label for="">
+                choose category:
+                <select name="category" id="inputCatg">
+                    <option value="task">task</option>
+                    <option value="idea">idea</option>
+                    <option value="random thought">random thought</option>
+                </select>
+            </label>
+            <textarea name="content" cols="30" rows="5" id="inputContent" placeholder="type your note..."></textarea>
+            <label for="">
+                when to do: <br>
+                <input type="date" id="inputDate">
+            </label>
+            <button id="addBtn">add</button>
+        </form>
+        <button id="createBtn">Create Note</button>
+        <div class="category">
+            <div class="header">
+                <p>Note Category</p>
+                <p>Active</p>
+                <p>Archived</p>
+            </div>
+            <ul class="main" id="category">
+            </ul>
+        </div>
+        <div class="archive">
+            <div class='header'>
+                <p>Archive</p>
+            </div>
+            <ul class="main" id="archive">
+            </ul>
+        </div>
+    </div>
+    <script src="constants.js"></script>
+    <script src="main.js"></script>
+</body>
+
+</html>
