@@ -10,14 +10,168 @@ const formInput = document.querySelector('#formInput');//input
 let inputName = document.querySelector('#inputName');
 let inputCatg = document.querySelector('#inputCatg');
 let inputContent = document.querySelector('#inputContent');
-let inputDate = document.querySelector('#inputDate');
 
-// 
-let category = document.querySelector('#category');
-let archive = document.querySelector('#archive')
+
 
 createBtn.addEventListener('click', toggleAddingForm)
 addBtn.addEventListener('click', addNewTask)
+// //////////////////////////////////////////////////////////////
+
+
+// const list = document.querySelector('#note-list');
+
+// const categoryImg = list.content.querySelector('#categoryImg');
+// const name = list.content.querySelector('#name');
+// const create = list.content.querySelector('#create');
+// const category = list.content.querySelector('#category');
+// const content = list.content.querySelector('#content');
+// const dates = list.content.querySelector('#dates');
+
+// function renderListOrArchive(data, images, isArchived) {
+//     for (let item of data.filter(el => el['isArchived'] === isArchived)) {
+//         categoryImg.src = images[item['category']]
+//         name.textContent = item['title'];
+//         create.textContent = item['created'];
+//         category.textContent = item['category'];
+//         content.textContent = item['content'];
+//         dates.textContent = item['dates'];
+
+//         function createActionBtn() {
+//             let imgBtnWrapper = document.createElement('div');
+//             imgBtnWrapper.classList.add('icon-btn-wrapper');
+
+//             let iconEdit = document.createElement('img');
+//             iconEdit.classList.add('icon');
+//             iconEdit.src = '/icons/edit.png';
+
+//             let iconSave = document.createElement('img');
+//             iconSave.classList.add('icon');
+//             iconSave.style.display = 'none';
+//             iconSave.src = '/icons/tick.png'
+
+//             iconEdit.addEventListener('click', function editListItem(event) {
+//                 // let itemsText = event.target.closest('li').querySelectorAll('p:not(:nth-child(3))');
+//                 console.log(event.target)
+
+//                 // iconSave.style.display = 'inline';
+//                 // this.style.display = 'none';
+
+//                 // let inputName = document.createElement('input');
+//                 // inputName.value = itemsText[0].textContent;
+//                 // itemsText[0].textContent = '';
+//                 // itemsText[0].appendChild(inputName);
+
+//                 // let inputSelect = document.createElement('select');
+//                 // let task = document.createElement('option');
+//                 // task.value = 'task';
+//                 // task.textContent = 'task';
+//                 // if (itemsText[1].textContent === 'task') {
+//                 //     task.setAttribute('selected', 'selected')
+//                 // }
+//                 // inputSelect.appendChild(task);
+
+//                 // let randomThought = document.createElement('option');
+//                 // randomThought.value = 'random thought';
+//                 // randomThought.textContent = 'random thought';
+//                 // if (itemsText[1].textContent === 'random thought') {
+//                 //     randomThought.setAttribute('selected', 'selected')
+//                 // }
+//                 // inputSelect.appendChild(randomThought);
+
+//                 // let idea = document.createElement('option');
+//                 // idea.value = 'idea';
+//                 // idea.textContent = 'idea';
+//                 // if (itemsText[1].textContent === 'idea') {
+//                 //     idea.setAttribute('selected', 'selected')
+//                 // }
+//                 // inputSelect.appendChild(idea);
+
+//                 // itemsText[1].textContent = '';
+//                 // itemsText[1].appendChild(inputSelect);
+
+//                 // let inputContent = document.createElement('textarea');
+//                 // inputContent.value = itemsText[2].textContent;
+//                 // itemsText[2].textContent = '';
+//                 // itemsText[2].appendChild(inputContent);
+
+//                 // iconSave.addEventListener('click', function saveListItem(event) {
+//                 //     iconSave.style.display = 'none';
+//                 //     iconEdit.style.display = 'inline';
+//                 //     let itemsId = event.target.closest('li').getAttribute('data-id');
+
+//                 //     storageNotes[itemsId - 1]['title'] = inputName.value;
+//                 //     storageNotes[itemsId - 1]['category'] = inputSelect.value;
+//                 //     storageNotes[itemsId - 1]['content'] = inputContent.value;
+
+//                 //     storageNotes[itemsId - 1]['dates'] = [];
+
+//                 //     renderListOrArchive(storageNotes, imgCatgSrc, false);;
+//                 // })
+//             })
+
+
+
+
+//             let iconArchive = document.createElement('img');
+//             iconArchive.classList.add('icon');
+//             iconArchive.src = '/icons/archive.png'
+
+//             iconArchive.addEventListener('click', function archiveItemList(event) {
+//                 let itemsId = event.target.closest('li').getAttribute('data-id');
+//                 storageNotes[itemsId - 1]['isArchived'] = true;
+
+//                 renderListOrArchive(storageNotes, imgCatgSrc, false);
+//                 renderListOrArchive(storageNotes, imgCatgSrc, true);
+//             })
+
+//             let iconDelete = document.createElement('img');
+//             iconDelete.classList.add('icon');
+//             iconDelete.src = '/icons/delete.png'
+
+//             iconDelete.addEventListener('click', function removeItem(event) {
+//                 let itemsId = event.target.closest('li').getAttribute('data-id');
+
+//                 for (let i = 0; i < storageNotes.length; i++) {
+//                     if (storageNotes[i]['id'] === +itemsId) {
+//                         storageNotes.splice(i, 1);
+//                     }
+//                 }
+
+//                 renderListOrArchive(storageNotes, imgCatgSrc, false);
+//                 renderCategory(storageNotes);
+//             })
+
+//             imgBtnWrapper.appendChild(iconEdit);
+//             imgBtnWrapper.appendChild(iconSave);
+//             imgBtnWrapper.appendChild(iconArchive);
+//             imgBtnWrapper.appendChild(iconDelete);
+
+//             return imgBtnWrapper;
+//         }
+
+//         // const clone = list.cloneNode(list.content, true);
+//         let li = list.content.cloneNode(true);
+//         li.appendChild(createActionBtn());
+//         // li.appendChild(createActionBtn());
+//         // main.appendChild(clone);
+//         // [4].childNodes[13].childNodes[5]
+//         // var child = main.childNodes;
+//         //         main.querySelector('#edit').addEventListener('click', function(event){
+//         // alert(event);
+//         // });
+//         main.appendChild(li);
+//     }
+// }
+// renderListOrArchive(storageNotes, imgCatgSrc, false);
+
+// // function renderCategoryList() {
+
+// // }
+
+
+
+
+//////////////////////////////////////////////////////////////
 
 renderList(storageNotes);
 renderCategory(storageNotes);
@@ -42,7 +196,7 @@ function addNewTask(event) {
          ${new Date().getFullYear()}`,
         category: inputCatg.value,
         content: inputContent.value,
-        dates: [inputDate.value.split('-').reverse().join('-').replace(/\-/g, '/')],
+        dates: [],
     }
 
     try {
@@ -57,8 +211,6 @@ function addNewTask(event) {
     inputName.value = '';
     inputCatg.value = '';
     inputContent.value = '';
-    inputDate.value = '';
-
 
     renderList(storageNotes);
 }
@@ -122,23 +274,17 @@ function createActionBtn() {
         itemsText[2].textContent = '';
         itemsText[2].appendChild(inputContent);
 
-        let inputDate = document.createElement('input');
-        inputDate.setAttribute('type', 'date');
-        itemsText[3].appendChild(inputDate);
-
         iconSave.addEventListener('click', function saveListItem(event) {
             iconSave.style.display = 'none';
             iconEdit.style.display = 'inline';
             let itemsId = event.target.closest('li').getAttribute('data-id');
 
-            console.log(inputDate.value);
             storageNotes[itemsId - 1]['title'] = inputName.value;
             storageNotes[itemsId - 1]['category'] = inputSelect.value;
             storageNotes[itemsId - 1]['content'] = inputContent.value;
-            if (storageNotes[itemsId - 1]['dates'].length === 2) {
-                storageNotes[itemsId - 1]['dates'].splice(0, 1);
-            }
-            storageNotes[itemsId - 1]['dates'].push(inputDate.value.replace(/\-/g, '/'));
+
+            storageNotes[itemsId - 1]['dates'] = [];
+
             renderList(storageNotes);
         })
     });
@@ -224,13 +370,12 @@ function createItemContent(item) {
 
 function createItemDates(item) {
     let tdDates = document.createElement('p');
-    if (item['dates'][0] && item['dates'][1]) {
-        tdDates.innerHTML = `${item['dates'][0]}, ${item['dates'][1]}`
-    } else if (item['dates'][0]) {
-        tdDates.innerHTML = item['dates'][0]
-    } else {
-        tdDates.innerHTML = '';
+    item['dates'] = [];
+    for (let match of [...item['content'].matchAll(/\d{1,2}\/\d{1,2}\/\d{4}/g)]) {
+
+        item['dates'].push(match[0])
     }
+    tdDates.innerHTML = item['dates'].join(', ');
 
 
     return tdDates;
@@ -259,7 +404,6 @@ function renderList(data) {
     }
 
     storageNotes.filter(el => el.isArchived === true).length && renderArchive(storageNotes)
-
 }
 
 function renderCategory(data) {
@@ -312,40 +456,39 @@ function renderCategory(data) {
 function renderArchive(data) {
     archive.innerHTML = '';
 
-        for (let item of data) {
-            if (item.isArchived) {
-                let li = document.createElement('li');
-                li.classList.add('item');
-                li.setAttribute('data-id', item.id);
-                let liId = li.getAttribute('data-id');
-                let unarchive = document.createElement('div');
-                unarchive.classList.add('icon-btn-wrapper');
-                let imgUnarchive = document.createElement('img');
-                imgUnarchive.classList.add('icon');
-                imgUnarchive.src = '/icons/unarchive.png';
-                unarchive.appendChild(imgUnarchive);
+    for (let item of data) {
+        if (item.isArchived) {
+            let li = document.createElement('li');
+            li.classList.add('item');
+            li.setAttribute('data-id', item.id);
+            let liId = li.getAttribute('data-id');
+            let unarchive = document.createElement('div');
+            unarchive.classList.add('icon-btn-wrapper');
+            let imgUnarchive = document.createElement('img');
+            imgUnarchive.classList.add('icon');
+            imgUnarchive.src = '/icons/unarchive.png';
+            unarchive.appendChild(imgUnarchive);
 
-                imgUnarchive.addEventListener('click', (event) => {
-                    let itemsId = event.target.closest('li').getAttribute('data-id');
-                    storageNotes[itemsId - 1]['isArchived'] = false;
+            imgUnarchive.addEventListener('click', (event) => {
+                let itemsId = event.target.closest('li').getAttribute('data-id');
+                storageNotes[itemsId - 1]['isArchived'] = false;
 
-                    renderList(storageNotes);
-                    renderCategory(storageNotes);
-                    renderArchive(storageNotes)
-                })
+                renderList(storageNotes);
+                renderCategory(storageNotes);
+                renderArchive(storageNotes)
+            })
 
-                li.appendChild(createImageCategory(item));
-                li.appendChild(createItemName(item));
-                li.appendChild(createItemCreationDate(item));
-                li.appendChild(createItemCategory(item));
-                li.appendChild(createItemContent(item));
-                li.appendChild(createItemDates(item));
-                li.appendChild(unarchive);
+            li.appendChild(createImageCategory(item));
+            li.appendChild(createItemName(item));
+            li.appendChild(createItemCreationDate(item));
+            li.appendChild(createItemCategory(item));
+            li.appendChild(createItemContent(item));
+            li.appendChild(createItemDates(item));
+            li.appendChild(unarchive);
 
-                archive.appendChild(li)
-            }
+            archive.appendChild(li)
         }
+    }
 
     renderCategory(storageNotes);
 }
-
